@@ -146,3 +146,14 @@ h2 {
         flex-direction: column;
     }
 }
+
+footer {
+    text-align: center;
+    color: blue;
+    padding: 10px 0;
+    background: #fff;
+    backdrop-filter: blur(3px);
+    a {
+        text-decoration: none;
+    }
+}

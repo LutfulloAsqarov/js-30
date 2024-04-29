@@ -152,3 +152,14 @@ h2 {
     flex-direction: column;
   }
 }
+footer {
+  text-align: center;
+  color: blue;
+  padding: 10px 0;
+  background: #fff;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+footer a {
+  text-decoration: none;
+}

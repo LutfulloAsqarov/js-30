@@ -6,6 +6,8 @@ const searchForm = document.querySelector(".search__form");
 const searchInput = document.querySelector(".search__input");
 const forecastDay = document.querySelector(".forecastday");
 const weatherUpdate = document.querySelector(".weather__update");
+const tomorrow = document.querySelector(".tomorrow");
+const forecastdays = document.querySelector(".forecastdays");
 
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -34,7 +36,6 @@ async function fetchWeatherData(region = "Tashkent") {
 }
 
 function renderWeather(data) {
-    console.log(data);
     weatherRegion.innerHTML = `${data.location.name}, ${data.location.country}`;
     weatherDegree.textContent = `${data.current.temp_c}°`;
     weatherImage.src = data.current.condition.icon;
@@ -57,4 +58,16 @@ function renderWeather(data) {
         `;
     });
     forecastDay.innerHTML = forecastdayItems;
+
+    let forecastDays = "";
+    data.forecast.forecastday.slice(1).forEach((el) => {
+        forecastDays += `
+            <div class="forecastdays__item">
+                <p class="tomorrow">${el.date}</p>
+                <img src="${el.day.condition.icon}" alt="img" />
+                <p>${el.day.maxtemp_c}°</p>
+            </div>
+        `;
+    });
+    forecastdays.innerHTML = forecastDays;
 }
